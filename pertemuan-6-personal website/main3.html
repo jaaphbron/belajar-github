@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kejora Coffee - Kedai Kopi Terbaik di Kota</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #5D4037;
+            --secondary: #8D6E63;
+            --accent: #FF9800;
+            --light: #FFF8E1;
+            --dark: #3E2723;
+            --text: #4E342E;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d7ccc8' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(rgba(61, 44, 31, 0.9), rgba(61, 44, 31, 0.9)), url('https://placehold.co/1200x600/5D4037/FFFFFF?text=Kejora+Coffee') center/cover no-repeat;
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+        }
+
+        .logo h1 {
+            font-size: 2.2rem;
+            color: var(--accent);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(61, 44, 31, 0.7), rgba(61, 44, 31, 0.7)), url('https://placehold.co/1200x600/5D4037/FFFFFF?text=Nikmati+Kopi+Terbaik') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 150px 20px;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d7ccc8' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-title .divider {
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 80px 0;
+            background-color: var(--light);
+            background-image: linear-gradient(45deg, rgba(255, 248, 225, 0.9) 25%, transparent 25%, transparent 75%, rgba(255, 248, 225, 0.9) 75%, rgba(255, 248, 225, 0.9)), 
+                            linear-gradient(45deg, rgba(255, 248, 225, 0.9) 25%, transparent 25%, transparent 75%, rgba(255, 248, 225, 0.9) 75%, rgba(255, 248, 225, 0.9));
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .menu-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .menu-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-item:hover .menu-image img {
+            transform: scale(1.1);
+        }
+
+        .menu-content {
+            padding: 20px;
+        }
+
+        .menu-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .menu-content p {
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .menu-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            background-color: white;
+            background-image: radial-gradient(var(--accent) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--light);
+            background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d7ccc8' fill-opacity='0.2'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .contact-info {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-right: 15px;
+            width: 30px;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zm0 0c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10 10 4.477 10 10z' stroke='%238D6E63' stroke-width='2' fill='none' fill-rule='evenodd' opacity='0.3'/%3E%3C/svg%3E");
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-column p {
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 100px 20px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://placehold.co/100x100/5D4037/FFFFFF?text=KC" alt="Kejora Coffee Logo">
+                <h1>Kejora Coffee</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#gallery">Galeri</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Nikmati Kopi Terbaik di Kejora</h2>
+            <p>Temukan pengalaman kopi autentik dengan cita rasa istimewa dan suasana yang nyaman</p>
+            <a href="#menu" class="btn">Lihat Menu Kami</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tentang Kejora Coffee</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Kisah Kami</h3>
+                    <p>Kejora Coffee didirikan pada tahun 2015 dengan passion untuk menyajikan kopi berkualitas tinggi. Kami percaya bahwa secangkir kopi yang sempurna dapat mengubah hari Anda menjadi lebih baik.</p>
+                    <p>Kami menggunakan biji kopi pilihan dari perkebunan terbaik di Indonesia dan diproses dengan metode yang tepat untuk menghasilkan cita rasa yang khas dan nikmat.</p>
+                    <p>Selain kopi yang lezat, kami juga menyediakan suasana yang nyaman dan hangat, cocok untuk bersantai sendiri atau berkumpul bersama teman dan keluarga.</p>
+                    <a href="#contact" class="btn">Hubungi Kami</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://placehold.co/600x400/5D4037/FFFFFF?text=Tentang+Kejora+Coffee" alt="Tentang Kejora Coffee">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Menu Kopi Kami</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://placehold.co/600x400/5D4037/FFFFFF?text=Espresso" alt="Espresso">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Espresso</h3>
+                        <p>Kopi murni dengan rasa kental dan aroma yang kuat, disajikan dalam cangkir kecil.</p>
+                        <div class="menu-price">
+                            <span class="price">Rp 18.000</span>
+                            <button class="btn">Pesan</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://placehold.co/600x400/5D4037/FFFFFF?text=Cappuccino" alt="Cappuccino">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Cappuccino</h3>
+                        <p>Perpaduan sempurna antara espresso, susu steamed, dan busa susu yang lembut.</p>
+                        <div class="menu-price">
+                            <span class="price">Rp 28.000</span>
+                            <button class="btn">Pesan</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://placehold.co/600x400/5D4037/FFFFFF?text=Latte" alt="Latte">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Latte</h3>
+                        <p>Espresso dengan susu steamed yang banyak dan sedikit busa di atasnya, cocok untuk yang suka rasa lebih ringan.</p>
+                        <div class="menu-price">
+                            <span class="price">Rp 30.000</span>
+                            <button class="btn">Pesan</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://placehold.co/600x400/5D4037/FFFFFF?text=Mocha" alt="Mocha">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Mocha</h3>
+                        <p>Perpaduan espresso, cokelat, dan susu yang creamy, ditaburi dengan whipped cream di atasnya.</p>
+                        <div class="menu-price">
+                            <span class="price">Rp 32.000</span>
+                            <button class="btn">Pesan</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://placehold.co/600x400/5D4037/FFFFFF?text=Cold+Brew" alt="Cold Brew">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Cold Brew</h3>
+                        <p>Kopi yang diseduh dengan air dingin selama 24 jam, menghasilkan rasa yang halus dan minim asam.</p>
+                        <div class="menu-price">
+                            <span class="price">Rp 35.000</span>
+                            <button class="btn">Pesan</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://placehold.co/600x400/5D4037/FFFFFF?text=Affogato" alt="Affogato">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Affogato</h3>
+                        <p>Es krim vanila yang disiram dengan espresso panas, perpaduan sempurna antara panas dan dingin.</p>
+                        <div class="menu-price">
+                            <span class="price">Rp 38.000</span>
+                            <button class="btn">Pesan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galeri Kejora Coffee</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://placehold.co/400x400/5D4037/FFFFFF?text=Espresso+Premium" alt="Kopi Kejora">
+                    <div class="gallery-overlay">
+                        <h4>Espresso Premium</h4>
+                        <p>Kopi pilihan dengan rasa khas</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/400x400/5D4037/FFFFFF?text=Cappuccino+Spesial" alt="Kopi Kejora">
+                    <div class="gallery-overlay">
+                        <h4>Cappuccino Spesial</h4>
+                        <p>Perpaduan sempurna rasa dan tekstur</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/400x400/5D4037/FFFFFF?text=Latte+Art" alt="Kopi Kejora">
+                    <div class="gallery-overlay">
+                        <h4>Latte Art</h4>
+                        <p>Seni dalam secangkir kopi</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/400x400/5D4037/FFFFFF?text=Mocha+Delight" alt="Kopi Kejora">
+                    <div class="gallery-overlay">
+                        <h4>Mocha Delight</h4>
+                        <p>Perpaduan cokelat dan kopi</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/400x400/5D4037/FFFFFF?text=Cold+Brew+Refreshing" alt="Kopi Kejora">
+                    <div class="gallery-overlay">
+                        <h4>Cold Brew Refreshing</h4>
+                        <p>Kopi dingin yang menyegarkan</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/400x400/5D4037/FFFFFF?text=Affogato+Classico" alt="Kopi Kejora">
+                    <div class="gallery-overlay">
+                        <h4>Affogato Classico</h4>
+                        <p>Dessert kopi yang lezat</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/400x400/5D4037/FFFFFF?text=Suasana+Kedai" alt="Kopi Kejora">
+                    <div class="gallery-overlay">
+                        <h4>Suasana Kedai</h4>
+                        <p>Tempat nyaman untuk bersantai</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/400x400/5D4037/FFFFFF?text=Barista+Profesional" alt="Kopi Kejora">
+                    <div class="gallery-overlay">
+                        <h4>Barista Profesional</h4>
+                        <p>Dibuat dengan tangan ahli</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hubungi Kami</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Jl. Bintang Jaya No. 123, Jakarta Selatan, DKI Jakarta 12345</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>(021) 1234-5678</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@kejoracoffee.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Senin - Jumat: 08:00 - 22:00<br>Sabtu - Minggu: 09:00 - 23:00</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Kirim Pesan</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Nomor Telepon</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Kejora Coffee</h3>
+                    <p>Menyajikan kopi berkualitas dengan cita rasa autentik dan suasana yang nyaman untuk Anda nikmati.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Menu Cepat</h3>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#menu">Menu Kopi</a></li>
+                        <li><a href="#gallery">Galeri</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Menu Kopi</h3>
+                    <ul>
+                        <li><a href="#">Espresso</a></li>
+                        <li><a href="#">Cappuccino</a></li>
+                        <li><a href="#">Latte</a></li>
+                        <li><a href="#">Mocha</a></li>
+                        <li><a href="#">Cold Brew</a></li>
+                        <li><a href="#">Affogato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Dapatkan penawaran terbaru dan informasi menarik dari kami.</p>
+                    <form id="newsletterForm">
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Anda" required>
+                        </div>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Kejora Coffee. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple validation
+            if (name && email && phone && message) {
+                // Create success message
+                const successMessage = document.createElement('div');
+                successMessage.className = 'success-message';
+                successMessage.style.position = 'fixed';
+                successMessage.style.top = '20px';
+                successMessage.style.right = '20px';
+                successMessage.style.backgroundColor = '#4CAF50';
+                successMessage.style.color = 'white';
+                successMessage.style.padding = '15px';
+                successMessage.style.borderRadius = '5px';
+                successMessage.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+                successMessage.style.zIndex = '1000';
+                successMessage.textContent = 'Pesan Anda telah terkirim! Kami akan segera menghubungi Anda.';
+                
+                // Add to body
+                document.body.appendChild(successMessage);
+                
+                // Reset form
+                this.reset();
+                
+                // Remove message after 5 seconds
+                setTimeout(() => {
+                    successMessage.remove();
+                }, 5000);
+            }
+        });
+
+        // Newsletter form
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Create success message
+            const successMessage = document.createElement('div');
+            successMessage.className = 'success-message';
+            successMessage.style.position = 'fixed';
+            successMessage.style.top = '20px';
+            successMessage.style.right = '20px';
+            successMessage.style.backgroundColor = '#4CAF50';
+            successMessage.style.color = 'white';
+            successMessage.style.padding = '15px';
+            successMessage.style.borderRadius = '5px';
+            successMessage.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+            successMessage.style.zIndex = '1000';
+            successMessage.textContent = 'Terima kasih! Anda telah berlangganan newsletter kami.';
+            
+            // Add to body
+            document.body.appendChild(successMessage);
+            
+            // Reset form
+            this.reset();
+            
+            // Remove message after 5 seconds
+            setTimeout(() => {
+                successMessage.remove();
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

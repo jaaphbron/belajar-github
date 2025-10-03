@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website - Hebron</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            --accent-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --skill-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --article-gradient: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+            --footer-gradient: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-ser  if;
+            background-color: #f8f9fa;
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            background: var(--primary-gradient) !important;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #f0f0f0 !important;
+            transform: translateY(-2px);
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        /* Banner Styles */
+        .banner-section {
+            padding: 60px 0;
+            background: var(--secondary-gradient);
+            border-radius: 0 0 30px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .banner-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .banner-section::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(20px, 20px) rotate(10deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+        
+        .profile-img {
+            border: 6px solid white;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            transition: all 0.5s ease;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+            max-width: 80%;
+            height: auto;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.08) rotate(3deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+        }
+        
+        .banner-text h1 {
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: white;
+        }
+        
+        .banner-text h5 {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .banner-text p {
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 400;
+        }
+        
+        .banner-btn {
+            border-radius: 50px;
+            font-weight: 600;
+            padding: 10px 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-light-custom {
+            background: rgba(255, 255, 255, 0.9);
+            color: #2575fc;
+            border: none;
+        }
+        
+        .btn-light-custom:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            color: #2575fc;
+        }
+        
+        .btn-outline-light-custom {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            color: white;
+        }
+        
+        .btn-outline-light-custom:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Section Styles */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+        
+        /* Card Styles */
+        .custom-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: none;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .custom-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .edu-card {
+            background: var(--accent-gradient);
+        }
+        
+        .edu-card .card-body {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .edu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+        }
+        
+        .skill-card {
+            background: var(--skill-gradient);
+        }
+        
+        .skill-card .card-body {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom left, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+        }
+        
+        .skill-badge {
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 30px;
+            padding: 10px 18px;
+            margin-bottom: 12px;
+            display: inline-block;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .article-card {
+            margin-bottom: 25px;
+        }
+        
+        .article-header {
+            background: var(--article-gradient);
+            color: white;
+            padding: 18px 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .article-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(-45deg);
+        }
+        
+        .btn-custom {
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 30px;
+            padding: 10px 25px;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+        
+        /* Social Buttons */
+        .social-btn {
+            border-radius: 50px;
+            padding: 12px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: none;
+            margin-bottom: 10px;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-instagram {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+        
+        .btn-facebook {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        
+        .btn-email {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+        
+        .btn-github {
+            background: linear-gradient(135deg, #434343 0%, #000000 100%);
+            color: white;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(45deg);
+        }
+        
+        .contact-form .card-body {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            padding: 12px 15px;
+        }
+        
+        .form-control:focus {
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            border-color: transparent;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--footer-gradient);
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        footer a {
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: rgba(255, 255, 255, 0.8);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .banner-section {
+                text-align: center;
+            }
+            
+            .profile-img {
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-code me-2"></i>@hebron</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home"><i class="fas fa-home me-1"></i>Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education"><i class="fas fa-graduation-cap me-1"></i>Riwayat Pendidikan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills"><i class="fas fa-laptop-code me-1"></i>Keahlian</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#articles"><i class="fas fa-newspaper me-1"></i>Artikel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact"><i class="fas fa-envelope me-1"></i>Hubungi Saya</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner Section -->
+    <section id="home" class="banner-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="banner-text">
+                        <h5>Selamat datang di Personal Website</h5>
+                        <h1><b>Hebron</b></h1>
+                        <p class="mb-0 fs-5">Siswa Jurusan Rekayasa Perangkat Lunak</p>
+                        <p class="fs-5">SMK Negeri 8 Jember</p>
+                        <div class="mt-4">
+                            <a href="#contact" class="btn btn-light-custom banner-btn me-3"><i class="fas fa-paper-plane me-2"></i>Hubungi Saya</a>
+                            <a href="#articles" class="btn btn-outline-light-custom banner-btn"><i class="fas fa-book me-2"></i>Baca Artikel</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="https://z-cdn-media.chatglm.cn/files/a9dae9d2-eeba-4bd4-9cd4-b9eed5e1a3cc_07d634a2-81b5-4e26-9c0a-ccf2669e3a8c.jpg?auth_key=1789475972-242c1aa0952b4a0d8fa58cf6ba5d0a8c-0-c8dc2fda60a99a736b6e716f8e297888" class="profile-img rounded-circle" alt="Foto Profile">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Skills Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4" id="education">
+                    <div class="custom-card edu-card">
+                        <div class="card-body p-4">
+                            <h3 class="mb-4 section-title"><i class="fas fa-graduation-cap me-2"></i>Riwayat Pendidikan</h3>
+                            <div class="card mb-3 bg-white bg-opacity-90 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-school me-2 text-primary"></i>SMKN 8 Jember</h5>
+                                    <p>Jurusan Rekayasa Perangkat Lunak</p>
+                                    <small class="text-muted">2024 - sekarang</small>
+                                </div>
+                            </div>
+                            <div class="card bg-white bg-opacity-90 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-school me-2 text-primary"></i>SMP Negeri 1 Teminabuan</h5>
+                                    <small class="text-muted">2022 - 2024</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4" id="skills">
+                    <div class="custom-card skill-card">
+                        <div class="card-body p-4">
+                            <h3 class="mb-4 section-title"><i class="fas fa-laptop-code me-2"></i>Keahlian</h3>
+                            <div class="skill-badge"><i class="fab fa-java me-2"></i>Java</div>
+                            <div class="skill-badge"><i class="fab fa-html5 me-2"></i>HTML/CSS/Javascript</div>
+                            <div class="skill-badge"><i class="fab fa-bootstrap me-2"></i>Framework Bootstrap</div>
+                            <div class="skill-badge"><i class="fas fa-database me-2"></i>Database</div>
+                            <div class="skill-badge"><i class="fas fa-mobile-alt me-2"></i>Mobile Development</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section id="articles" class="py-5 bg-light">
+        <div class="container">
+            <h3 class="mb-4 section-title"><i class="fas fa-newspaper me-2"></i>Artikel Saya</h3>
+            
+            <div class="custom-card article-card">
+                <div class="article-header">
+                    <h5 class="mb-0">Pengenalan Dasar Pemrograman Java untuk Pemula</h5>
+                    <small><i class="far fa-calendar-alt me-1"></i> 10 Oktober 2023</small>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Java adalah salah satu bahasa pemrograman yang paling populer di dunia. Dalam artikel ini, kita akan membahas dasar-dasar pemrograman Java yang penting untuk dipelajari oleh pemula. Mulai dari pengenalan sintaks dasar, struktur kontrol, hingga konsep objek dan kelas yang merupakan fondasi dari pemrograman berorientasi objek.
+                    </p>
+                    <p>
+                        Salah satu keunggulan Java adalah kemampuannya untuk berjalan di berbagai platform melalui mekanisme "Write Once, Run Anywhere" (WORA). Ini membuat Java menjadi pilihan yang tepat untuk pengembangan aplikasi enterprise, mobile (Android), dan web.
+                    </p>
+                    <a href="#" class="btn btn-custom">Baca Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            
+            <div class="custom-card article-card">
+                <div class="article-header">
+                    <h5 class="mb-0">Membangun Website Responsif dengan Bootstrap 5</h5>
+                    <small><i class="far fa-calendar-alt me-1"></i> 25 September 2023</small>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Bootstrap adalah framework CSS yang paling populer untuk pengembangan web responsif. Dengan Bootstrap, kita dapat dengan mudah membuat tampilan website yang menarik dan dapat beradaptasi dengan berbagai ukuran layar, dari desktop hingga mobile.
+                    </p>
+                    <p>
+                        Artikel ini akan membahas komponen-komponen dasar Bootstrap seperti grid system, navigasi bar, kartu, formulir, dan banyak lagi. Kita juga akan melihat bagaimana mengkustomisasi Bootstrap agar sesuai dengan kebutuhan desain kita tanpa harus menulis banyak CSS dari awal.
+                    </p>
+                    <a href="#" class="btn btn-custom">Baca Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            
+            <div class="custom-card article-card">
+                <div class="article-header">
+                    <h5 class="mb-0">Konsep Dasar Database untuk Pengembang Pemula</h5>
+                    <small><i class="far fa-calendar-alt me-1"></i> 5 September 2023</small>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Database adalah komponen penting dalam banyak aplikasi modern. Memahami konsep dasar database adalah keterampilan penting bagi setiap pengembang perangkat lunak. Artikel ini membahas pengenalan database relasional, dasar SQL, dan desain database yang baik.
+                    </p>
+                    <p>
+                        Kita akan membahas tentang tabel, primary key, foreign key, relasi antar tabel, dan operasi dasar CRUD (Create, Read, Update, Delete). Pemahaman yang baik tentang database akan membantu Anda dalam membangun aplikasi yang lebih efisien dan terstruktur.
+                    </p>
+                    <a href="#" class="btn btn-custom">Baca Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h3 class="mb-4 section-title"><i class="fas fa-envelope me-2"></i>Hubungi Saya</h3>
+            <p class="mb-4">Anda dapat menghubungi saya melalui media sosial berikut:</p>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex flex-column">
+                        <a href="https://www.instagram.com/mambri_rumfaker?igsh=MWIxOGZoMGRjNzQ4Yg%3D%3D&utm_source=qr" target="_blank" class="btn social-btn btn-instagram mb-3">
+                            <i class="fab fa-instagram me-2"></i>Instagram
+                        </a>
+                        <a href="https://www.facebook.com/share/164BsL5YP5/?mibextid=wwXIfr" target="_blank" class="btn social-btn btn-facebook mb-3">
+                            <i class="fab fa-facebook-f me-2"></i>Facebook
+                        </a>
+                        <a href="mailto:hebronjaap392@gmail.com" class="btn social-btn btn-email mb-3">
+                            <i class="fas fa-envelope me-2"></i>Email
+                        </a>
+                        <a href="https://github.com/hebronjaap" target="_blank" class="btn social-btn btn-github">
+                            <i class="fab fa-github me-2"></i>GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="custom-card contact-form">
+                        <div class="card-body p-4">
+                            <h5 class="mb-3">Kirim Pesan</h5>
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Nama Anda">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Email Anda">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="4" placeholder="Pesan Anda"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-custom">
+                                    <i class="fas fa-paper-plane me-2"></i>Kirim Pesan
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p class="mb-0">Dibuat oleh <b>Hebron</b></p>
+            <div class="mt-3">
+                <a href="https://www.instagram.com/mambri_rumfaker?igsh=MWIxOGZoMGRjNzQ4Yg%3D%3D&utm_source=qr" target="_blank" class="me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="https://www.facebook.com/share/164BsL5YP5/?mibextid=wwXIfr" target="_blank" class="me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                <a href="mailto:hebronjaap392@gmail.com" class="me-3"><i class="fas fa-envelope fa-lg"></i></a>
+                <a href="https://github.com/hebronjaap" target="_blank"><i class="fab fa-github fa-lg"></i></a>
+            </div>
+            <p class="mt-3 mb-0 small">&copy; 2023 Hebron. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Smooth scrolling -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>  
